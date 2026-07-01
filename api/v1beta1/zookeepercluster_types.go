@@ -468,6 +468,10 @@ type PodPolicy struct {
 	// More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context
 	SecurityContext *v1.PodSecurityContext `json:"securityContext,omitempty"`
 
+	// ContainerSecurityContext specifies the security context for the zookeeper container
+	// More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context
+	ContainerSecurityContext *v1.PodSecurityContext `json:"containerSecurityContext,omitempty"`
+
 	// +kubebuilder:validation:Minimum=0
 	// TerminationGracePeriodSeconds is the amount of time that kubernetes will
 	// give for a pod instance to shutdown normally.
