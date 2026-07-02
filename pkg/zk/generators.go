@@ -160,6 +160,9 @@ func makeZkPodSpec(z *v1beta1.ZookeeperCluster, volumes []v1.Volume) v1.PodSpec 
 	if z.Spec.Pod.Resources.Limits != nil || z.Spec.Pod.Resources.Requests != nil {
 		zkContainer.Resources = z.Spec.Pod.Resources
 	}
+	if z.Spec.Pod.ContainerSecurityContext != nil {
+		zkContainer.SecurityContext = z.Spec.Pod.ContainerSecurityContext
+	}
 	volumes = append(volumes, v1.Volume{
 		Name: "conf",
 		VolumeSource: v1.VolumeSource{
